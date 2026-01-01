@@ -7,6 +7,7 @@ const sendOTP = async (email: any) => {
     email,
     options: {
       shouldCreateUser: false, // Don't create user if they don't exist
+      redirectTo: 'dutukfrontend://auth/callback',
     }
   });
   

@@ -67,6 +67,9 @@ const UserLogin = () => {
       const { supabase } = await import('@/utils/supabase');
       const { error } = await supabase.auth.signInWithOtp({
         email: email.trim().toLowerCase(),
+        options: {
+          redirectTo: 'dutukfrontend://auth/callback',
+        }
       });
 
       if (error) {

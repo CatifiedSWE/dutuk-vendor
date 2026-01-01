@@ -76,7 +76,12 @@ const OtpPage = () => {
   const handleResend = async () => {
     if (countdown > 0) return;
     try {
-      await supabase.auth.signInWithOtp({ email: email as string });
+      await supabase.auth.signInWithOtp({ 
+        email: email as string,
+        options: {
+          redirectTo: 'dutukfrontend://auth/callback',
+        }
+      });
       Toast.show({ type: "success", text1: "New code sent!" });
       setCountdown(59);
     } catch {

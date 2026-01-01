@@ -7,7 +7,7 @@ WebBrowser.maybeCompleteAuthSession();
 
 const googleLogin = async () => {
   try {
-    const redirectUrl = Linking.createURL("auth/callback");
+    const redirectUrl = 'dutukfrontend://auth/callback';
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",

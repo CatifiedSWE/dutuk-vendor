@@ -46,6 +46,9 @@ const registerUser = async (userEmail: string, password: string) => {
     // Email confirmation is required, send OTP
     const { error: otpError } = await supabase.auth.signInWithOtp({
       email: userEmail,
+      options: {
+        redirectTo: 'dutukfrontend://auth/callback',
+      }
     });
 
     if (otpError) {
